@@ -22,11 +22,11 @@ export default (state = initialState, action) => {
         case Constants.ROLL_BALL:
             return {
                 ...state,
-                current: {
-                    roll: Game.updateRoll(state.current.roll),
-                    frame: Game.updateFrame(state.current.roll, state.current.frame),
-                    pinsLeft: Game.pinStanding(state.current.pinsLeft, action.data)
-                }
+                current: Game.play(state.current.roll,
+                    state.current.frame,
+                    state.current.pinsLeft,
+                    state.current.score,
+                    action.data)
             };
         default:
             return state;
