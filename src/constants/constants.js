@@ -1,1 +1,1 @@
-export const DUMMY= 'DUMMY';
+export const ROLL_BALL = 'ROLL_BALL';
