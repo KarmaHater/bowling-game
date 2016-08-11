@@ -13,7 +13,7 @@ class HomePage extends Component {
             <div>
                 <ScoreBoard current={current}/>
                 <ButtonBowl actions={this.props.actions}/>
-                <Pins pinsLeft={current.pinsLeft}/>
+                <Pins pins={current.pins}/>
             </div>
         );
     }

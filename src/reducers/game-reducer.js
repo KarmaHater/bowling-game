@@ -5,7 +5,7 @@ const initialState = {
     current: {
         roll: 0,
         frame: 0,
-        pinsLeft: 10,
+        pins: 10,
         score: 0
     },
     rules: {
@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
                 ...state,
                 current: Game.play(state.current.roll,
                     state.current.frame,
-                    state.current.pinsLeft,
+                    state.current.pins,
                     state.current.score,
                     action.data)
             };

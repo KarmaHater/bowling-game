@@ -15,7 +15,7 @@ export default class BowlingPins extends Component {
     static PropTypes = {}
 
     render() {
-        const renderPins = makePins(this.props.pinsLeft);
+        const renderPins = makePins(this.props.pins);
         return (
             <div className="bowling-pin-container">{renderPins}</div>
         );

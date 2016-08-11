@@ -10,12 +10,12 @@ export default class ScoreBoard extends Component {
     }
 
     render() {
-        const {score, frame, pinsLeft, roll} = this.props.current
+        const {score, frame, pins, roll} = this.props.current
         return (
             <div className="score-board">
                 <div>score: {score}</div>
                 <div>frame: {frame}</div>
-                <div>Pins Left: {pinsLeft}</div>
+                <div>Pins Left: {pins}</div>
                 <div>roll: {roll}</div>
             </div>
         );
