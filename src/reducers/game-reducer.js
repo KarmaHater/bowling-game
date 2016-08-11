@@ -1,4 +1,5 @@
 import * as Constants from '../constants/constants.js';
+import Game from './game-helpers.js';
 
 const initialState = {
     current: {
@@ -13,14 +14,7 @@ const initialState = {
     }
 };
 
-function pinStanding(pinsLeft, pinsHit) {
-    const pins = pinsLeft - pinsHit;
-    if( pins >= 0) {
-        return pins;
-    } else {
-        return 0;
-    }
-}
+
 
 
 export default (state = initialState, action) => {
@@ -29,7 +23,9 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 current: {
-                    pinsLeft: pinStanding(state.current.pinsLeft, action.data)
+                    roll: Game.updateRoll(state.current.roll),
+                    frame: Game.updateFrame(state.current.roll, state.current.frame),
+                    pinsLeft: Game.pinStanding(state.current.pinsLeft, action.data)
                 }
             };
         default:
