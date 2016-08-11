@@ -1,13 +1,18 @@
 import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import DummyActions from './../actions/dummy-actions.js';
+import ScoreBoard from './../components/score-board.js';
+import ButtonBowl from '../components/bowl-button.js';
+import Pins from './../components/bowling-pins.js';
 
 class HomePage extends Component {
     render() {
+        const {current} = this.props;
         return (
             <div>
-              hello!
+                <ScoreBoard current={current}/>
+                <ButtonBowl/>
+                <Pins pinsLeft={current.pinsLeft}/>
             </div>
         );
     }
@@ -15,12 +20,13 @@ class HomePage extends Component {
 
 function mapStateToProps(state) {
     return {
-        state: state
+        rules: state.game.rules,
+        current: state.game.current
     };
 }
 function mapDispatchToProps(dispatch) {
     return {
-        dummyActions: bindActionCreators(DummyActions, dispatch)
+        // dummyActions: bindActionCreators(DummyActions, dispatch)
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

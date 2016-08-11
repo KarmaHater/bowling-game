@@ -1,0 +1,14 @@
+.score-board {
+    border: 2px solid black;
+    position: absolute;
+    right: 0;
+    top:0;
+    height: 160px;
+    width: 200px;
+    padding: 25px;
+    line-height:35px;
+    font-size: 25px;
+    background-color: #0b97c4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

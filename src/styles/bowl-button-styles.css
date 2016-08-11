@@ -1,0 +1,18 @@
+.bowl-button {
+    padding:15px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 35px;
+    line-height: 45 px;
+    background-color: #ff84e8;
+    border: 2px solid black;
+    width:300px;
+    height: 100px;
+    position: absolute;
+    right:0;
+    bottom:0;
+    margin:50px;
+    &:hover {
+        background-color: pink;
+    }
+}

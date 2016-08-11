@@ -1,6 +1,17 @@
 import * as Constants from '../constants/constants.js';
 
-const initialState = {};
+const initialState = {
+    current: {
+        roll: 0,
+        frame: 0,
+        pinsLeft: 10,
+        score: 0
+    },
+    rules: {
+        frameTotal: 10,
+        rollTotal: 2
+    }
+};
 
 
 export default (state = initialState, action) => {
