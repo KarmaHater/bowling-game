@@ -1,5 +1,5 @@
 import * as Constants from '../constants/constants.js';
-import Game from './game-helpers.js';
+import Game from './utils/game-helpers.js';
 
 const initialState = {
     current: {
