@@ -1,12 +1,14 @@
 export default class GameHelper {
-    static _updatePins(pins, pinsHit) {
+    static _updatePins(pins, pinsHit, prevRoll) {
 
         const totalPins = pins - pinsHit;
 
-        if (totalPins > 0) {
-            return totalPins;
+        if (prevRoll >= 2) {
+            return 10;
         } else if (totalPins === 0) {
             return 10;
+        } else if(totalPins > 0) {
+            return totalPins;
         } else {
             return pins;
         }
@@ -89,7 +91,7 @@ export default class GameHelper {
     }
 
     static  play(prevRoll, frame, pins, score, strike, spare, pinsHit) {
-        const totalPins = this._updatePins(pins, pinsHit);
+        const totalPins = this._updatePins(pins, pinsHit, prevRoll);
         const nextScore = this._updateScore(score, pins, pinsHit);
         const nextFrame = this._updateFrame(prevRoll, frame, totalPins);
         const isNewGame = this._isNewGame(frame);
@@ -140,7 +142,7 @@ export default class GameHelper {
 
         } else {
             result.roll = this._updateRoll(prevRoll);
-            result.frame = nextFrame
+            result.frame = nextFrame;
             result.pins = totalPins;
             result.score = nextScore;
 
