@@ -6,12 +6,18 @@ const initialState = {
         roll: 0,
         frame: 0,
         pins: 10,
-        score: 0
+        score: 0,
+        strike: {
+            roll: 0
+        },
+        spare: {
+            roll: 0
+        }
     },
     rules: {
         frameTotal: 10,
         rollTotal: 2
-    }
+    },
 };
 
 
@@ -26,6 +32,7 @@ export default (state = initialState, action) => {
                     state.current.frame,
                     state.current.pins,
                     state.current.score,
+                    state.current.strike,
                     action.data)
             };
         default:
