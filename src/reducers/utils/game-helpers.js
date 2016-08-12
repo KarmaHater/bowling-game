@@ -4,7 +4,6 @@ export default class GameHelper {
         const totalPins = pins - pinsHit;
 
         if (prevRoll >= 2) {
-            console.log(prevRoll)
             return 10;
         } else if(totalPins > 0) {
             return totalPins;
@@ -85,7 +84,7 @@ export default class GameHelper {
         if(frame >= 10) {
             return true;
         } else  {
-
+            return false;
         }
     }
 
