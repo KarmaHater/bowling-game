@@ -6,17 +6,19 @@ describe('Reducers utils Game Helper', () => {
     describe('_updatePins update pins correct', () => {
 
         it('should return pinsHit if positive number', () => {
+            const roll = 1
             const pins = 10;
             const pinsHit = 6;
-            const totalPins = Game._updatePins(pins, pinsHit);
+            const totalPins = Game._updatePins(pins, pinsHit, roll);
             const result = 4;
             expect(totalPins).to.eql(result);
         });
 
         it('should return 0 if negative number', () => {
+            const roll = 1
             const pins = 6;
             const pinsHit = 8;
-            const totalPins = Game._updateRoll(pins, pinsHit);
+            const totalPins = Game._updateRoll(pins, pinsHit, roll);
             const result = 0;
             expect(totalPins).to.eql(result);
         });
