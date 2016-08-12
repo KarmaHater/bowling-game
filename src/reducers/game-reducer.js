@@ -32,6 +32,7 @@ export default (state = initialState, action) => {
                     state.current.pins,
                     state.current.score,
                     state.current.strike,
+                    state.current.spare,
                     action.data)
         };
     default:
