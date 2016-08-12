@@ -17,26 +17,25 @@ const initialState = {
     rules: {
         frameTotal: 10,
         rollTotal: 2
-    },
+    }
 };
-
 
 
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case Constants.ROLL_BALL:
-            return {
-                ...state,
-                current: Game.play(state.current.roll,
+    case Constants.ROLL_BALL:
+        return {
+            ...state,
+            current: Game.play(state.current.roll,
                     state.current.frame,
                     state.current.pins,
                     state.current.score,
                     state.current.strike,
                     action.data)
-            };
-        default:
-            return state;
+        };
+    default:
+        return state;
     }
 };
 

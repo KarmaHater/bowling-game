@@ -1,11 +1,10 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import '../styles/ball-styles.css';
 
 export default class BowlingBall extends Component {
-    static PropTypes = {}
 
     handleRollBallClick = ()=> {
-        this.props.actions.rollBall()
+        this.props.actions.rollBall();
     }
 
     render() {

@@ -22,7 +22,7 @@ export default class GameHelper {
         } else if (roll === 2) {
             return frame + 1;
         } else {
-            return frame
+            return frame;
         }
     }
 
@@ -31,12 +31,12 @@ export default class GameHelper {
         if (negativeNum < 0) {
             return score + pins;
         } else {
-            return score + pinsHit
+            return score + pinsHit;
         }
     }
 
     static _updateStrikRoll(strick) {
-        if(strick.roll >= 2) {
+        if (strick.roll >= 2) {
             return 0;
         } else {
             return strick.roll + 1;
@@ -44,10 +44,10 @@ export default class GameHelper {
     }
 
     static _isStrike(pins, roll) {
-        if(pins === 0 && roll === 0) {
+        if (pins === 0 && roll === 0) {
             return true;
         } else {
-            return false
+            return false;
         }
     }
 
@@ -56,14 +56,14 @@ export default class GameHelper {
         const nextScore = this._updateScore(score, pins, pinsHit);
         const isStrike = this._isStrike(pins, prevRoll);
 
-        if(isStrike || strike.roll > 0) {
-            const strikeRoll = this._updateStrikRoll(strike)
+        if (isStrike || strike.roll > 0) {
+            const strikeRoll = this._updateStrikRoll(strike);
             return {
                 score: nextScore,
                 strike: {
                     roll: strikeRoll
                 }
-            }
+            };
 
         } else  if (totalPins === 0) {
             return {
@@ -74,7 +74,7 @@ export default class GameHelper {
                 strike: {
                     roll: 0
                 }
-            }
+            };
         } else {
             return {
                 roll: this._updateRoll(prevRoll),
@@ -84,7 +84,7 @@ export default class GameHelper {
                 strike: {
                     roll: 0
                 }
-            }
+            };
         }
 
     }
