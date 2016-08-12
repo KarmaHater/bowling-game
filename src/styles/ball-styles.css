@@ -1,3 +1,8 @@
 .bowling-ball {
     width:100px;
 }
+
+.ball-container {
+    font-size: 30px;
+    margin:45px;
+}

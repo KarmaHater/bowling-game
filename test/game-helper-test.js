@@ -1,10 +1,10 @@
-
 var expect = require('chai').expect;
 import Game from '../src/reducers/utils/game-helpers.js';
 
 describe('Reducers utils Game Helper', () => {
 
     describe('_updatePins update pins correct', () => {
+
         it('should return pinsHit if positive number', () => {
             const pins = 10;
             const pinsHit = 6;
@@ -23,6 +23,7 @@ describe('Reducers utils Game Helper', () => {
     });
 
     describe('_updateRoll update rolls correct', () => {
+
         it('should add one to roll count', () => {
             const roll = 0;
             const totalRolls = Game._updateRoll(roll);
@@ -39,7 +40,7 @@ describe('Reducers utils Game Helper', () => {
     });
 
     describe('_updateFrame update frame correct', () => {
-            const roll = 2;
+        const roll = 2;
 
         it('should add one to frame count', () => {
             const frame = 3;

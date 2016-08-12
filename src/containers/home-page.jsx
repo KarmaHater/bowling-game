@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as GameActions from './../actions/game-actions.js';
 import ScoreBoard from './../components/score-board.js';
-import ButtonBowl from '../components/bowl-button.js';
+import Ball from '../components/ball.js';
 import Pins from './../components/bowling-pins.js';
 
 class HomePage extends Component {
@@ -12,7 +12,7 @@ class HomePage extends Component {
         return (
             <div>
                 <ScoreBoard current={current}/>
-                <ButtonBowl actions={this.props.actions}/>
+                <Ball actions={this.props.actions}/>
                 <Pins pins={current.pins}/>
             </div>
         );
