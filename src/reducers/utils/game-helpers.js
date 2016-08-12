@@ -44,18 +44,18 @@ export default class GameHelper {
         }
     }
 
-    static _updateStrikeRoll(strick) {
+    static _updateStrikeRoll(strike) {
 
-        if (strick.roll >= 2) {
+        if (strike.roll >= 2) {
             return 0;
         } else {
-            return strick.roll + 1;
+            return strike.roll + 1;
         }
     }
 
-    static _isStrike(pins, prevRoll) {
+    static _isStrike(totalPins, prevRoll) {
 
-        if (pins === 0 && prevRoll === 0) {
+        if (totalPins === 0 && prevRoll === 0) {
             return true;
         } else {
             return false;
@@ -71,12 +71,20 @@ export default class GameHelper {
         }
     }
 
-    static _isSpare(pins, prevRoll) {
+    static _isSpare(totalPins, prevRoll) {
 
-        if (pins === 0 && prevRoll === 1) {
+        if (totalPins === 0 && prevRoll === 1) {
             return true;
         } else {
             return false;
+        }
+    }
+
+    static _isNewGame(frame) {
+        if(frame >= 10) {
+            return true;
+        } else  {
+
         }
     }
 
@@ -84,6 +92,7 @@ export default class GameHelper {
         const totalPins = this._updatePins(pins, pinsHit);
         const nextScore = this._updateScore(score, pins, pinsHit);
         const nextFrame = this._updateFrame(prevRoll, frame, totalPins);
+        const isNewGame = this._isNewGame(frame);
         const isStrike = this._isStrike(totalPins, prevRoll);
         const isSpare = this._isSpare(totalPins, prevRoll);
 
@@ -100,7 +109,15 @@ export default class GameHelper {
 
         };
 
-        if (isStrike || strike.roll > 0) {
+        if(isNewGame) {
+            result.roll = 0;
+            result.frame = 0;
+            result.pins = 10;
+            result.score = 0;
+            result.strike.roll = 0;
+            result.spare.roll = 0;
+
+        } else if(isStrike || strike.roll > 0) {
 
             const strikeRoll = this._updateStrikeRoll(strike);
             result.pins = totalPins;
@@ -110,7 +127,6 @@ export default class GameHelper {
         } else if (isSpare || spare.roll > 0) {
 
             const spareRoll = this._updateSpareRoll(spare);
-            console.log(spareRoll.roll, "roll")
             result.pins = totalPins;
             result.score = nextScore;
             result.spare.roll = spareRoll;
