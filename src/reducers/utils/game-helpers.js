@@ -1,10 +1,14 @@
+const DEFALUT_PINS = 10;
+const DEFALUT_ROLL_LIMIT = 10;
+const FRAME_LIMIT = 10;
+
 export default class GameHelper {
     static _updatePins(pins, pinsHit, prevRoll) {
 
         const totalPins = pins - pinsHit;
 
-        if (prevRoll >= 2) {
-            return 10;
+        if (prevRoll >= DEFALUT_ROLL_LIMIT) {
+            return DEFALUT_PINS;
         } else if(totalPins > 0) {
             return totalPins;
         } else {
@@ -14,7 +18,7 @@ export default class GameHelper {
 
     static _updateRoll(prevRoll) {
 
-        if (prevRoll >= 2) {
+        if (prevRoll >= DEFALUT_ROLL_LIMIT) {
             return 0;
         } else {
             return prevRoll + 1;
@@ -23,9 +27,9 @@ export default class GameHelper {
 
     static _updateFrame(roll, frame) {
 
-        if (frame >= 10 && roll === 2) {
+        if (frame >= FRAME_LIMIT && roll === 2) {
             return 0;
-        } else if (roll === 2) {
+        } else if (roll === DEFALUT_ROLL_LIMIT) {
             return frame + 1;
         } else {
             return frame;
@@ -35,7 +39,7 @@ export default class GameHelper {
     static _updateScore(score, pins, pinsHit, frame) {
         const negativeNum = pins - pinsHit;
 
-        if (frame === 10) {
+        if (frame === FRAME_LIMIT) {
             return 0;
         } else if (negativeNum < 0) {
             return score + pins;
@@ -81,7 +85,7 @@ export default class GameHelper {
     }
 
     static _isNewGame(frame) {
-        if(frame >= 10) {
+        if(frame >= FRAME_LIMIT) {
             return true;
         } else  {
             return false;
@@ -112,7 +116,7 @@ export default class GameHelper {
         if(isNewGame) {
             result.roll = 0;
             result.frame = 0;
-            result.pins = 10;
+            result.pins = DEFALUT_PINS;
             result.score = 0;
             result.strike.roll = 0;
             result.spare.roll = 0;
@@ -120,7 +124,7 @@ export default class GameHelper {
         } else if(isStrike || strike.roll > 0) {
 
             const strikeRoll = this._updateStrikeRoll(strike);
-            result.pins = totalPins;
+            result.pins = DEFALUT_PINS;
             result.score = nextScore;
             result.strike.roll = strikeRoll;
 
@@ -135,7 +139,7 @@ export default class GameHelper {
 
             result.roll = 0;
             result.frame = frame + 1;
-            result.pins = 10;
+            result.pins = DEFALUT_PINS;
             result.score = nextScore;
 
         } else {
